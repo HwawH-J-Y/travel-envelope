@@ -49,10 +49,10 @@ Prepare a short internal source map containing each image ID, subject, selected 
 | A quiet documentary scene | Use a straight-cut matte print held by small photo corners, or a single translucent tape tab |
 
 - Prefer natural-contour cutouts with one or two supporting frame treatments; the table is a menu, not a checklist. Use each selected frame style at most once. Keep difficult subjects framed rather than damaging fidelity.
-- Show each identifiable person, salient object, and food item only once across separate collage elements, including the background. Do not reuse a full photo after extracting one of its subjects. Non-overlapping objects from one unused source may become separate cutouts.
-- A single film strip may intentionally repeat the same uploaded photo as a visible graphic rhythm; keep the copies identical and do not use that photo elsewhere. Never invent frames or replacement faces.
+- Avoid accidental reuse of the same shot or extracted subject across treatments, including the background. Do not reuse a full photo after extracting one of its subjects. Non-overlapping objects from one unused source may become separate cutouts. This is not a ban on the same person appearing in distinct photographs.
+- Preserve supplied triptychs and related multi-shot portrait sequences as one film strip by default. Map every original panel in its original order, retaining distinct expressions, poses, and scenery; do not omit the sequence merely because it depicts the principal person. A sequence may coexist with a main cutout from a different shot. Never replace distinct panels with cloned faces, invented frames, or repeated copies of one panel. Identical-photo repetition is allowed only as intentional graphic rhythm within one strip, not elsewhere.
 - Preserve identity, face, hairstyle, clothing, pose, and recognizable object appearance. Do not beautify faces or reconstruct unseen parts.
-- Select distinct subjects rather than maximizing photo count. Omit unusable duplicates and disclose omissions. If every photo is required, explain any conflict with nonrepetition. With few sources, keep the cluster compact; if only a background exists, request one foreground photo.
+- Select distinct memories rather than maximizing photo count. Omit unusable duplicates and disclose omissions, but treat an intentional sequence as useful source material, not a duplicate. If every photo is required, plan coverage before generating and explain genuine source constraints. With few sources, keep the cluster compact; if only a background exists, request one foreground photo.
 
 ## 3a. Optional destination accents for sparse inputs
 
@@ -70,6 +70,8 @@ Derive the envelope hue from a visible dominant or secondary color in the select
 
 Use these percentages as the default composition range. Adapt spacing and overlap to the sources and aspect ratio while keeping the envelope within the stated width range. Preserve an approved composition during edits.
 
+For revisions, anchor to the version the user explicitly approves, even if it is not the latest output. Record what must change and what must remain fixed. If asked to make the person smaller, reduce that cutout relative to the chosen reference without shrinking the entire artwork. Carry the revised person size into subsequent layering edits; do not enlarge the person, envelope, or group just to fill gaps. Explicitly approved proportions take precedence over default ranges.
+
 - Keep the envelope body around 58-68% W, with a front pocket height around 23-29% H. Adjust spacing and overlap within this range. Do not enlarge the envelope merely to fit more items.
 - Consider the entire foreground group, including protruding contents. Around 65-72% W by 58-65% H is a useful starting arrangement; let narrow or tall elements extend modestly when needed while preserving clear scenery on both sides.
 - Initially try roughly 16% side margins, 18% above, 17% below, and 55% visible background, then adjust for balance. Resize only if scenery is overwhelmed or the user requests it.
@@ -86,6 +88,7 @@ Use these percentages as the default composition range. Adapt spacing and overla
 - Show the envelope approximately front-on as thin paper with fine edges and shallow folds. Its left and right front panels slope toward a central opening; the back and raised flap sit behind the contents, while the front pocket hides their lower portions. Avoid thick cardboard, a bulging gift bag, deep box-like interiors, bevels, or dramatic product-render perspective. Contents should appear tucked inside, never protruding through the bottom.
 - Give the paper realistic grain, slightly worn edges, faint uneven ink absorption, and restrained fiber texture. Add a gentle vintage print character with mildly softened contrast and fine grain. Avoid heavy sepia, orange tint, dirty stains, exaggerated scratches, or smoothing away faces and details; pale blue-white paper should remain cool.
 - Keep the exterior spacious and the envelope opening internally compact. Arrange contents as one connected cluster emerging from the same opening: taller photos or strips toward the back, principal cutouts in the middle, and smaller source objects or permitted accents filling lower gaps. Use controlled overlap and uneven top edges, not a regular grid, evenly spaced row, or separate floating stickers.
+- Plan actual front-to-back occlusion, not just proximity: rear prints overlap one another, the film strip crosses a print edge, a cutout or small object covers part of a frame or strip, and the pocket covers their lower ends. Adapt this chain to the supplied materials; do not require every item to be entirely visible. Hide borders and nonessential scenery rather than faces or the distinctive content of each sequence panel. Keep the strip tucked into the shared cluster, not a detached towering banner. Different rotations or shadows alone do not establish overlap.
 - Vary subject scale and use gentle rotation while retaining readable silhouettes. Keep faces, key food items, and important photographic details visible. Do not enlarge the whole group to create internal richness, overcrowd sparse inputs, or fill gaps with unauthorized content.
 - Use shallow, consistent contact shadows only between envelope, photos, and cutout layers. Do not cast a grounding shadow from the complete collage onto the background. Keep a photographic cut-paper aesthetic without thick bevels or floating 3D rendering.
 - Newly created elements are limited to the envelope, diverse photo mounts, paper texture, shadows, decorative postmarks and cancellation waves, specified title, and the exact small destination accents permitted and listed under Section 3a. No other invented photographic content is allowed. Borderless cutouts must never inherit the white margins used for photographic frames.
@@ -124,7 +127,9 @@ Input map: {numbered SOURCE, STYLE-ONLY, and previous-output roles}.
 Background: {source ID}. Use the real photo full bleed, crop only as needed, and preserve
 recognizable scenery. It is a flat photographic field, not a physical floor or support.
 Foreground plan: {each selected source, unique subject/crop, treatment, and placement}.
-Subject inventory: {people and objects, omitted duplicates, and any single-strip repetition}.
+Subject inventory: {people and objects, omitted duplicates, and every panel of intentional sequences}.
+Revision anchor: {user-approved output, requested changes, and locked person/envelope scale, or NONE}.
+Occlusion plan: {specific back-to-front overlaps between prints, strip, cutouts, objects, and pocket}.
 Permitted generated destination accents: {exact 1-2 small objects, maximum 3, or NONE}.
 All other photographic content must come from mapped sources.
 
@@ -141,12 +146,16 @@ heights, varied scale, and gentle rotation. Center the envelope but keep its con
 asymmetrical. Offset the principal person modestly left or right, usually about 6-12% of the
 envelope width, and counterbalance them with other elements. Do not align the person's face
 and torso to the envelope centerline. No grid, evenly spaced row, or floating stickers.
+Overlap actual silhouettes and frame edges, keeping faces and each sequence panel's distinctive
+content readable. The pocket hides lower ends. Preserve approved scale during layering edits.
 
 Cutouts: follow actual contours with NO white outline, paper rim, sticker stroke, or halo.
-Use each selected frame style at most once. Do not repeat any person or salient object across
-separate elements. The only exception is identical copies of one uploaded photo confined to
-one film strip; that photo appears nowhere else. Preserve faces, clothing, poses, food, and
-object appearance. Keep difficult extractions framed instead of reconstructing them.
+Use each selected frame style at most once. Avoid accidental reuse of the same shot across
+treatments, but preserve intentional multi-shot sequences of the same person as one film strip,
+including supplied triptychs, in original panel order. A different-shot main cutout may coexist
+with the sequence. Never clone one panel to replace distinct expressions or invent panels.
+Preserve faces, clothing, poses, food, and object appearance. Keep difficult extractions framed
+instead of reconstructing them.
 
 Paper and finish: fine fibers, mildly softened contrast, restrained vintage grain, no heavy
 sepia, orange cast, dirty distress, thick cardboard, bag shape, deep box, or 3D bevels.
@@ -171,9 +180,9 @@ Inspect the result against these acceptance criteria:
 - The envelope reads as thin, nearly front-facing folded paper with shallow shadows and a central pocket opening, not a thick box, bulging bag, or strongly rendered 3D object.
 - Cutouts have natural contours with no white rims, strokes, or halos. Photo-frame margins remain allowed.
 - Where sources permit, natural-contour subjects carry the visual emphasis with one or two supporting frame treatments. Fidelity takes priority when a source needs to remain framed; there is no decorative-format quota.
-- The contents form a compact, overlapping cluster at one opening, with tall back elements, middle focal subjects and small lower details. Surrounding scenery stays spacious. Reject evenly spaced cards, disconnected floating items, or inflated group size used to fill gaps.
+- The contents form a compact cluster with visible inter-item occlusion, not merely adjacency: frame edges are partly hidden behind other contents and lower ends disappear into the pocket. Faces and meaningful panel content remain legible. Surrounding scenery stays spacious. Reject side-by-side columns, evenly spaced cards, disconnected floating items, or inflated group size used to fill gaps. In revisions, verify the chosen approved anchor and locked person scale have been preserved.
 - The envelope may be centered, but its internal composition is visibly asymmetrical. The principal person's face and torso are offset from the envelope centerline and balanced by photos or objects on the opposite side; a perfectly centered portrait or mirrored arrangement is a composition error.
-- Each person and salient object occurs once across separate treatments; no subject appears both as a cutout and in a frame. One film strip may intentionally repeat the same uploaded photograph, but it must not appear elsewhere in the collage. Selected framing treatments are distinct, with no repeated postage/torn-edge treatment.
+- No accidental same-shot reuse occurs across separate treatments. Intentional same-person sequences are retained in one film strip, with every supplied panel in order and its original expression; a different-shot main portrait is allowed. No missing or cloned triptych panels. Identical-photo rhythm, if selected, stays within one strip. Selected framing treatments are distinct, with no repeated postage/torn-edge treatment.
 - Every photographic memory maps to a supplied source; every generated accent was explicitly listed, small, destination-relevant, and not a fabricated personal memory.
 - Faces and objects have no obvious alterations. The envelope copy follows one approved hierarchy, uses the correct destination, contains no invented claims or dates, and remains compact, low contrast, and surrounded by empty paper. Pocket occlusion works, and reference content has not leaked into the artwork.
 
