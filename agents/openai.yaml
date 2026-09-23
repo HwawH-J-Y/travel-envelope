@@ -1,4 +1,4 @@
 interface:
   display_name: "Travel Envelope"
   short_description: "Vintage travel collages with scenic space and varied photo styles"
-  default_prompt: "Use $travel-envelope to create a compact vintage travel collage with generous scenery, background-derived paper color, borderless cutouts, and visible layered occlusion; preserve supplied portrait sequences as a film strip and retain user-approved proportions during edits."
+  default_prompt: "Use $travel-envelope to create a compact floating travel collage with a 58-68% wide envelope, an off-center principal person, visible layered occlusion, and one to three destination accents whenever fewer than five useful foreground elements are available."
