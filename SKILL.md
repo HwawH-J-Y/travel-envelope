@@ -1,6 +1,6 @@
 ---
 name: travel-envelope
-description: Create vintage travel-envelope collages from uploaded photos with generous visible scenery, background-derived paper colors, borderless cutouts, and varied nonrepeating photo treatments. Use for travel-envelope images and travel scrapbook artwork; optionally supplement sparse collections with a few destination-specific objects.
+description: Create vintage travel-envelope collages from uploaded photos with generous visible scenery, background-derived paper colors, borderless cutouts, and varied nonrepeating photo treatments. Use for travel-envelope images and travel scrapbook artwork; automatically supplement sparse collections with a few destination-specific objects.
 ---
 
 # Travel Envelope
@@ -54,13 +54,14 @@ Prepare a short internal source map containing each image ID, subject, selected 
 - Preserve identity, face, hairstyle, clothing, pose, and recognizable object appearance. Do not beautify faces or reconstruct unseen parts.
 - Select distinct memories rather than maximizing photo count. Omit unusable duplicates and disclose omissions, but treat an intentional sequence as useful source material, not a duplicate. If every photo is required, plan coverage before generating and explain genuine source constraints. With few sources, keep the cluster compact; if only a background exists, request one foreground photo.
 
-## 3a. Optional destination accents for sparse inputs
+## 3a. Destination accents for sparse inputs
 
-- Assess the full collection first. If fewer than roughly five useful foreground elements remain or variety is poor, add one or two small destination accents, maximum three. Tool input limits do not make a collection sparse; do not replace usable sources because of them.
+- Count the planned foreground collage elements before generation. Each visible framed photo, film strip, borderless person, food item, or object counts once; the full-bleed background, envelope, title, postmark, and photo mounts do not count.
+- If fewer than five useful foreground elements remain and a destination is supplied, automatically add one to three small destination accents. Add enough to improve balance and, when possible within the three-accent limit, bring the foreground count to at least five. Variety may also justify accents even when the count reaches five. Tool input limits do not make a collection sparse; do not replace usable sources because of them.
 - Use only the destination explicitly supplied by the user, at its stated geographic level. A country such as Switzerland is valid; do not invent a city. If no destination is supplied, keep a sparse layout instead of guessing.
 - Favor recognizable objects absent from the sources, such as unbranded chocolate for Switzerland. Avoid uncertain associations. These accents are decorative, not personal memories; never generate people, a new background, branded packaging, readable tickets, passports, or documentary claims.
 - Keep generated accents subordinate: each no more than about 8% of canvas width, combined no more than 10% of the foreground group's visible area. Use natural borderless contours, matching light and subdued photographic texture.
-- List the exact allowed additions in the generation prompt. All unlisted photographic additions remain prohibited. Briefly disclose generated accents when delivering the result.
+- Place accents near the envelope opening or between existing elements so that they help form the overlap chain; do not line them up as detached stickers. List the exact allowed additions in the generation prompt. All unlisted photographic additions remain prohibited. Briefly disclose generated accents when delivering the result.
 
 ## 4. Scale, background-derived color, and vintage composition
 
@@ -72,12 +73,12 @@ Use these percentages as the default composition range. Adapt spacing and overla
 
 For revisions, anchor to the version the user explicitly approves, even if it is not the latest output. Record what must change and what must remain fixed. If asked to make the person smaller, reduce that cutout relative to the chosen reference without shrinking the entire artwork. Carry the revised person size into subsequent layering edits; do not enlarge the person, envelope, or group just to fill gaps. Explicitly approved proportions take precedence over default ranges.
 
-- Keep the envelope body around 58-68% W, with a front pocket height around 23-29% H. Adjust spacing and overlap within this range. Do not enlarge the envelope merely to fit more items.
+- Keep the envelope body within 58-68% W by default, with a front pocket height around 23-29% H. Treat 68% W as a default maximum, not a loose suggestion; exceed it only when the user explicitly requests or approves a larger envelope. Never enlarge the envelope to compensate for sparse inputs or to fit more items.
 - Consider the entire foreground group, including protruding contents. Around 65-72% W by 58-65% H is a useful starting arrangement; let narrow or tall elements extend modestly when needed while preserving clear scenery on both sides.
 - Initially try roughly 16% side margins, 18% above, 17% below, and 55% visible background, then adjust for balance. Resize only if scenery is overwhelmed or the user requests it.
 - Preserve a recognizable mountain ridge, horizon, street structure, or other important scenic feature. Do not treat the background as a thin decorative border.
-- The background is a full-bleed flat image layer, not a physical floor, wall, tabletop, ledge, or support surface. The envelope floats as a graphic overlay and must not align to the background horizon, ground plane, camera perspective, or surface angle. Background people or objects may be cropped or covered; do not preserve them merely to imply physical placement.
-- Largest person cutout may start around 28% H and be adjusted to balance the other contents. Place its visual center modestly left or right of the envelope center, usually by about 6-12% of the envelope width, choosing the side that balances the surrounding photos and objects. Avoid a perfectly centered portrait or a rigidly symmetrical cluster. Keep the title visually small; Section 5 defines its typography and scale.
+- The background is a full-bleed flat image layer, not a physical floor, wall, tabletop, ledge, or support surface. The envelope floats as a graphic overlay and must not align its bottom edge, perspective, or shadow to a road, floor, horizon, ledge, or vanishing point. Do not place a cast shadow beneath the complete envelope or make it appear to bear weight on the photographed scene. Background people or objects may be cropped or covered; do not preserve them merely to imply physical placement.
+- Largest person cutout may start around 28% H and be adjusted to balance the other contents. Place its visual center modestly left or right of the envelope center, usually by about 6-12% of the envelope width, choosing the side that balances the surrounding photos and objects. A person may be the focal element, but must not be both the largest rectangular photo and centered on the envelope. Offset, crop, rotate, or reduce it and counterbalance it with another photo or object. Avoid a passport-photo effect, a perfectly centered portrait, or a rigidly symmetrical cluster. Keep the title visually small; Section 5 defines its typography and scale.
 - Apply these references to envelope mode. For an explicitly requested flat lay, retain recognizable surrounding scenery and the nonrepetition rules, but omit envelope-specific dimensions.
 
 ### Decorative postmarks
@@ -117,6 +118,13 @@ Use the built-in image_gen tool for compositing and follow its current skill and
 - Prioritize original photos over style references. Label every reference `STYLE-ONLY` and prohibit copying its people, objects, landmarks, or text.
 - Do not invent unsupported size, seed, quality, or output-path arguments; express visual requirements in the prompt.
 
+Before invoking image generation, complete this preflight and carry the answers into the prompt:
+
+1. Record the envelope target width within 58-68% W.
+2. State how the collage remains a floating overlay with no road, floor, or horizon contact.
+3. State the principal person's off-center position and counterweight; reject a largest centered portrait plan.
+4. Record the foreground element count and, when it is below five, the exact one to three destination accents that will be added.
+
 Fill this prompt with the actual source map, destination, paper color, composition, and title:
 
 ```text
@@ -127,25 +135,30 @@ Input map: {numbered SOURCE, STYLE-ONLY, and previous-output roles}.
 Background: {source ID}. Use the real photo full bleed, crop only as needed, and preserve
 recognizable scenery. It is a flat photographic field, not a physical floor or support.
 Foreground plan: {each selected source, unique subject/crop, treatment, and placement}.
+Foreground count before accents: {count using Section 3a rules}.
 Subject inventory: {people and objects, omitted duplicates, and every panel of intentional sequences}.
 Revision anchor: {user-approved output, requested changes, and locked person/envelope scale, or NONE}.
 Occlusion plan: {specific back-to-front overlaps between prints, strip, cutouts, objects, and pocket}.
-Permitted generated destination accents: {exact 1-2 small objects, maximum 3, or NONE}.
+Permitted generated destination accents: {exact 1-3 small objects when foreground count is below 5,
+other justified accents, or NONE}.
 All other photographic content must come from mapped sources.
 
 Envelope: {background color -> lightened desaturated paper color}; thin tactile paper,
 fine edges, shallow folds, raised back flap, and front pocket hiding lower edges. Keep the
-body around 58-68% of canvas width. Center the envelope slightly below the middle, while
+body within 58-68% of canvas width; do not exceed 68% unless explicitly requested. Center
+the envelope slightly below the middle, while
 leaving generous recognizable scenery. The complete collage is an independent flat overlay:
-no floor contact, background-perspective alignment, support surface, or cast shadow onto
-the background. Use shallow contact shadows only between collage layers.
+no road or floor contact, horizon anchoring, background-perspective alignment, support surface,
+or cast shadow onto the background. Its bottom edge must not read as resting on the scene.
+Use shallow contact shadows only between collage layers.
 
 Contents: form one compact overlapping cluster from the same opening, with tall framed
 photos behind, principal cutouts in the middle, and small details near the pocket. Use uneven
 heights, varied scale, and gentle rotation. Center the envelope but keep its contents
 asymmetrical. Offset the principal person modestly left or right, usually about 6-12% of the
 envelope width, and counterbalance them with other elements. Do not align the person's face
-and torso to the envelope centerline. No grid, evenly spaced row, or floating stickers.
+and torso to the envelope centerline. The person must not be both the largest rectangular
+photo and centered. No passport-photo effect, grid, evenly spaced row, or floating stickers.
 Overlap actual silhouettes and frame edges, keeping faces and each sequence panel's distinctive
 content readable. The pocket hides lower ends. Preserve approved scale during layering edits.
 
@@ -174,14 +187,15 @@ copy, and explicitly listed destination accents may be newly created.
 
 Inspect the result against these acceptance criteria:
 
-- The background is the selected real photo, with meaningful scenery visible around a visually balanced foreground group. Assess the whole group, not only the envelope. Honor user-approved scale. An envelope substantially wider than the 58-68% default range or one that overwhelms the scenery is a clear composition error.
-- The background reads as a flat full-bleed photo. The envelope is an independent overlaid collage with no floor contact, support surface, shared perspective, horizon anchoring, or cast shadow onto the background. Background people and objects need not remain visible when the collage naturally covers them.
+- The background is the selected real photo, with meaningful scenery visible around a visually balanced foreground group. Assess the whole group, not only the envelope. Honor user-approved scale. Unless explicitly requested otherwise, an envelope outside 58-68% W, or one that overwhelms the scenery, is a rejection condition rather than a minor deviation.
+- The background reads as a flat full-bleed photo. The envelope is an independent overlaid collage with no road or floor contact, support surface, shared perspective, horizon anchoring, aligned bottom edge, or cast shadow onto the background. Reject any result that looks like a box or envelope physically standing on the photographed ground. Background people and objects need not remain visible when the collage naturally covers them.
 - Envelope color visibly derives from the background and has a restrained vintage finish.
 - The envelope reads as thin, nearly front-facing folded paper with shallow shadows and a central pocket opening, not a thick box, bulging bag, or strongly rendered 3D object.
 - Cutouts have natural contours with no white rims, strokes, or halos. Photo-frame margins remain allowed.
 - Where sources permit, natural-contour subjects carry the visual emphasis with one or two supporting frame treatments. Fidelity takes priority when a source needs to remain framed; there is no decorative-format quota.
 - The contents form a compact cluster with visible inter-item occlusion, not merely adjacency: frame edges are partly hidden behind other contents and lower ends disappear into the pocket. Faces and meaningful panel content remain legible. Surrounding scenery stays spacious. Reject side-by-side columns, evenly spaced cards, disconnected floating items, or inflated group size used to fill gaps. In revisions, verify the chosen approved anchor and locked person scale have been preserved.
-- The envelope may be centered, but its internal composition is visibly asymmetrical. The principal person's face and torso are offset from the envelope centerline and balanced by photos or objects on the opposite side; a perfectly centered portrait or mirrored arrangement is a composition error.
+- The envelope may be centered, but its internal composition is visibly asymmetrical. The principal person's face and torso are offset from the envelope centerline and balanced by photos or objects on the opposite side. Reject a largest centered rectangular portrait, passport-photo effect, perfectly centered portrait, or mirrored arrangement.
+- Recount foreground elements in the rendered result. When the pre-generation count was below five and a destination was supplied, verify that one to three listed destination accents appear near the opening, remain subordinate, and participate in the overlap chain. Missing required accents is a rejection condition.
 - No accidental same-shot reuse occurs across separate treatments. Intentional same-person sequences are retained in one film strip, with every supplied panel in order and its original expression; a different-shot main portrait is allowed. No missing or cloned triptych panels. Identical-photo rhythm, if selected, stays within one strip. Selected framing treatments are distinct, with no repeated postage/torn-edge treatment.
 - Every photographic memory maps to a supplied source; every generated accent was explicitly listed, small, destination-relevant, and not a fabricated personal memory.
 - Faces and objects have no obvious alterations. The envelope copy follows one approved hierarchy, uses the correct destination, contains no invented claims or dates, and remains compact, low contrast, and surrounded by empty paper. Pocket occlusion works, and reference content has not leaked into the artwork.
