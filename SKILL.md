@@ -18,7 +18,7 @@ When the user only asks to write or revise the skill or prompt, deliver those fi
 - Keep the scenic photo full bleed and recognizable around a balanced, centered open envelope in the lower half of the canvas.
 - Treat the background as a flat photographic field. Overlay the envelope as an independent collage layer: it does not stand on, rest on, or share perspective with the photographed scene, and it casts no spatial shadow onto the background.
 - Build one dense but legible cluster from the pocket: broad or tall framed photos at the back, borderless people and objects in the middle, and small details near the opening. Use varied heights, overlap, and slight rotation.
-- Center the envelope, but compose its contents asymmetrically. Offset the principal person to one side and counterbalance them with photos or objects on the other; do not place the person's face and torso directly on the envelope's vertical centerline.
+- Center the envelope, but compose its contents asymmetrically. Offset the principal focal subject to one side and counterbalance it with photos or objects on the other. A person is optional; when a person is selected, do not place their face and torso directly on the envelope's vertical centerline.
 - The result should feel like physical travel keepsakes tucked into thin textured paper, not a flat grid, poster, gift bag, or deep box.
 
 ## 1. Classify input roles
@@ -52,6 +52,7 @@ Prepare a short internal source map containing each image ID, subject, selected 
 - Avoid accidental reuse of the same shot or extracted subject across treatments, including the background. Do not reuse a full photo after extracting one of its subjects. Non-overlapping objects from one unused source may become separate cutouts. This is not a ban on the same person appearing in distinct photographs.
 - Preserve supplied triptychs and related multi-shot portrait sequences as one film strip by default. Map every original panel in its original order, retaining distinct expressions, poses, and scenery; do not omit the sequence merely because it depicts the principal person. A sequence may coexist with a main cutout from a different shot. Never replace distinct panels with cloned faces, invented frames, or repeated copies of one panel. Identical-photo repetition is allowed only as intentional graphic rhythm within one strip, not elsewhere.
 - Preserve identity, face, hairstyle, clothing, pose, and recognizable object appearance. Do not beautify faces or reconstruct unseen parts.
+- Do not require a person as the main subject. If the collection contains no suitable portrait—because none was supplied or available people are too small, blurred, obscured, or unsuitable for a faithful extraction—choose the strongest supplied non-person memory as the principal foreground subject. Prefer a recognizable landmark, architectural detail, food, transport, ticket, or travel object and give it the focal scale and off-center placement. Never invent a person or force an unsuitable group scene into a portrait cutout. If the user explicitly requires a person but no suitable source exists, request a better portrait instead.
 - Select distinct memories rather than maximizing photo count. Omit unusable duplicates and disclose omissions, but treat an intentional sequence as useful source material, not a duplicate. If every photo is required, plan coverage before generating and explain genuine source constraints. With few sources, keep the cluster compact; if only a background exists, request one foreground photo.
 
 ## 3a. Destination accents for sparse inputs
@@ -78,7 +79,7 @@ For revisions, anchor to the version the user explicitly approves, even if it is
 - Initially try roughly 16% side margins, 18% above, 17% below, and 55% visible background, then adjust for balance. Resize only if scenery is overwhelmed or the user requests it.
 - Preserve a recognizable mountain ridge, horizon, street structure, or other important scenic feature. Do not treat the background as a thin decorative border.
 - The background is a full-bleed flat image layer, not a physical floor, wall, tabletop, ledge, or support surface. The envelope floats as a graphic overlay and must not align its bottom edge, perspective, or shadow to a road, floor, horizon, ledge, or vanishing point. Do not place a cast shadow beneath the complete envelope or make it appear to bear weight on the photographed scene. Background people or objects may be cropped or covered; do not preserve them merely to imply physical placement.
-- Largest person cutout may start around 28% H and be adjusted to balance the other contents. Place its visual center modestly left or right of the envelope center, usually by about 6-12% of the envelope width, choosing the side that balances the surrounding photos and objects. A person may be the focal element, but must not be both the largest rectangular photo and centered on the envelope. Offset, crop, rotate, or reduce it and counterbalance it with another photo or object. Avoid a passport-photo effect, a perfectly centered portrait, or a rigidly symmetrical cluster. Keep the title visually small; Section 5 defines its typography and scale.
+- A principal focal subject may start around 28% H and be adjusted to balance the other contents. Place its visual center modestly left or right of the envelope center, usually by about 6-12% of the envelope width. When a suitable person is present, they may be focal but must not be both the largest rectangular photo and centered; offset, crop, rotate, or reduce them. When no suitable person is present, apply the same focal scale and off-center balance to the selected landmark, architecture, food, transport, ticket, or object. Avoid a passport-photo effect, a perfectly centered focal card, or a rigidly symmetrical cluster. Keep the title visually small; Section 5 defines its typography and scale.
 - Apply these references to envelope mode. For an explicitly requested flat lay, retain recognizable surrounding scenery and the nonrepetition rules, but omit envelope-specific dimensions.
 
 ### Decorative postmarks
@@ -122,7 +123,7 @@ Before invoking image generation, complete this preflight and carry the answers 
 
 1. Record the envelope target width within 58-68% W.
 2. State how the collage remains a floating overlay with no road, floor, or horizon contact.
-3. State the principal person's off-center position and counterweight; reject a largest centered portrait plan.
+3. Select the principal focal subject from the strongest suitable source and state its off-center position and counterweight. A person is optional; reject a largest centered portrait plan and never invent a missing person.
 4. Record the foreground element count and, when it is below five, the exact one to three destination accents that will be added.
 
 Fill this prompt with the actual source map, destination, paper color, composition, and title:
@@ -136,6 +137,8 @@ Background: {source ID}. Use the real photo full bleed, crop only as needed, and
 recognizable scenery. It is a flat photographic field, not a physical floor or support.
 Foreground plan: {each selected source, unique subject/crop, treatment, and placement}.
 Foreground count before accents: {count using Section 3a rules}.
+Principal focal subject: {best suitable person or non-person source, reason, off-center placement,
+and counterweight}.
 Subject inventory: {people and objects, omitted duplicates, and every panel of intentional sequences}.
 Revision anchor: {user-approved output, requested changes, and locked person/envelope scale, or NONE}.
 Occlusion plan: {specific back-to-front overlaps between prints, strip, cutouts, objects, and pocket}.
@@ -155,10 +158,13 @@ Use shallow contact shadows only between collage layers.
 Contents: form one compact overlapping cluster from the same opening, with tall framed
 photos behind, principal cutouts in the middle, and small details near the pocket. Use uneven
 heights, varied scale, and gentle rotation. Center the envelope but keep its contents
-asymmetrical. Offset the principal person modestly left or right, usually about 6-12% of the
-envelope width, and counterbalance them with other elements. Do not align the person's face
-and torso to the envelope centerline. The person must not be both the largest rectangular
-photo and centered. No passport-photo effect, grid, evenly spaced row, or floating stickers.
+asymmetrical. A person is optional. Use the strongest suitable supplied person, landmark,
+architecture, food, transport, ticket, or travel object as the principal focal subject; never
+invent a person. Offset the focal subject modestly left or right, usually about 6-12% of the
+envelope width, and counterbalance it with other elements. If a person is used, do not align
+their face and torso to the envelope centerline or make their rectangular photo both largest
+and centered. No passport-photo effect, centered focal card, grid, evenly spaced row, or
+floating stickers.
 Overlap actual silhouettes and frame edges, keeping faces and each sequence panel's distinctive
 content readable. The pocket hides lower ends. Preserve approved scale during layering edits.
 
@@ -194,7 +200,7 @@ Inspect the result against these acceptance criteria:
 - Cutouts have natural contours with no white rims, strokes, or halos. Photo-frame margins remain allowed.
 - Where sources permit, natural-contour subjects carry the visual emphasis with one or two supporting frame treatments. Fidelity takes priority when a source needs to remain framed; there is no decorative-format quota.
 - The contents form a compact cluster with visible inter-item occlusion, not merely adjacency: frame edges are partly hidden behind other contents and lower ends disappear into the pocket. Faces and meaningful panel content remain legible. Surrounding scenery stays spacious. Reject side-by-side columns, evenly spaced cards, disconnected floating items, or inflated group size used to fill gaps. In revisions, verify the chosen approved anchor and locked person scale have been preserved.
-- The envelope may be centered, but its internal composition is visibly asymmetrical. The principal person's face and torso are offset from the envelope centerline and balanced by photos or objects on the opposite side. Reject a largest centered rectangular portrait, passport-photo effect, perfectly centered portrait, or mirrored arrangement.
+- The envelope may be centered, but its internal composition is visibly asymmetrical. A principal focal subject is present and offset from the envelope centerline, with a counterweight on the opposite side. A person is not required: when no suitable portrait was supplied, verify that a faithful non-person source such as a landmark, architecture, food, transport, ticket, or travel object carries the focal role and that no person was invented. When a person is used, reject a largest centered rectangular portrait, passport-photo effect, perfectly centered portrait, or mirrored arrangement.
 - Recount foreground elements in the rendered result. When the pre-generation count was below five and a destination was supplied, verify that one to three listed destination accents appear near the opening, remain subordinate, and participate in the overlap chain. Missing required accents is a rejection condition.
 - No accidental same-shot reuse occurs across separate treatments. Intentional same-person sequences are retained in one film strip, with every supplied panel in order and its original expression; a different-shot main portrait is allowed. No missing or cloned triptych panels. Identical-photo rhythm, if selected, stays within one strip. Selected framing treatments are distinct, with no repeated postage/torn-edge treatment.
 - Every photographic memory maps to a supplied source; every generated accent was explicitly listed, small, destination-relevant, and not a fabricated personal memory.
